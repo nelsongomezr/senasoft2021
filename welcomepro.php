@@ -3,7 +3,7 @@ $id=1024550858;
 
 require("class/class.php");
 $serv=new Profesional;
-$ser=$serv->queryserv($id);
+$ser=$serv->queryserv($id); 
 $ns=sizeof($ser);
 
 ?>

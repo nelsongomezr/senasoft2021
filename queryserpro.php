@@ -31,7 +31,7 @@
                 <th>Id Usuario</th>
                 <th>Nombre Usuario</th>
                 <th>ciudad</th>
-                <th>Atender</th>
+                <th>Atender</th> 
             </tr>
         </thead>
              
