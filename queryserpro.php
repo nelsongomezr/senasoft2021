@@ -46,7 +46,7 @@
                 <td><?php echo $ser[$i]['Usuario_idUsuario'];?></td>
                 <td><?php echo $ser[$i]['Nombre'];?></td>
                 <td><?php echo $ser[$i]['Ciudad'];?></td>
-                <td><a href="#">ver</a></td>
+                <td><a href="#">Gestionar</a></td>
             </tr>
             <?php
               }
