@@ -16,6 +16,7 @@ $usu=$tra1[0]['idUsuario'];
 $pass1=$tra1[0]['Contraseña'];
 $rol=$tra1[0]['Rol_idRol'];
 
+
 $tra2=new Ips();
 $tra3=$tra2->valida_pass1($usuario,$pass);
 
