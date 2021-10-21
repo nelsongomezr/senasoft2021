@@ -46,7 +46,7 @@
                 <td><?php echo $ser[$i]['Usuario_idUsuario'];?></td>
                 <td><?php echo $ser[$i]['Nombre'];?></td>
                 <td><?php echo $ser[$i]['Ciudad'];?></td>
-                <td><a href="#">Gestionar</a></td>
+                <?php $a=$ser[$i]['idServicios'];echo'<td ><a href=insertserpro.php?id='.$a.'>Atender</a></td>'?>
             </tr>
             <?php
               }
