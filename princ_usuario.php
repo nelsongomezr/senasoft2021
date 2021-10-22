@@ -115,7 +115,7 @@ $estado=$tra1[0]['Estado_Civil'];
             </form>
         </div>
             <div class="botones">
-                <a class="buttons" href="reporte_paciente.php">Ver Reportes</a><br> <br>
+                <a class="buttons" href="reporte_paciente.php">Ver Reportes</a><br> <br> 
                 <a class="buttons" href="">Descargar Historia Clinica</a><br> <br> 
             </div>
     </div>
