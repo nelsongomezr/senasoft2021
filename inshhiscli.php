@@ -15,7 +15,7 @@
     }
     
     $info= new Profesional;
-    $inf=$info->queryidserv($ids);
+    $inf=$info->queryidserv($ids); 
     $hme=$info->Queryhis($ids);
 
 

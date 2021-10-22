@@ -3,7 +3,7 @@ require("conexion.php");
 Class Ips extends Conexion
 {
     
-    private $variable=array();
+    private $variable=array(); 
     private $vector=array();
     private $validacion=array();
     private $validacion1=array();

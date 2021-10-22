@@ -10,7 +10,7 @@
     $ids=$_GET['id'];
     require("class/class.php");
     $info= new Profesional;
-    $inf=$info->queryidserv($ids);
+    $inf=$info->queryidserv($ids); 
     $a=$ids;
     //print_r($hme);
     /*ini_set( 'display_errors','Off' );
