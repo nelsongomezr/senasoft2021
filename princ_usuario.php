@@ -33,9 +33,7 @@ $estado=$tra1[0]['Estado_Civil'];
     <link rel="stylesheet" href="css/estilos6.css">
     
     <title>&#129657; Módulo Paciente &#129657;</title>
-  
 </head>
-
 <body>
     <div class=titulo>
     <h1>MODULO PACIENTE</h1>
