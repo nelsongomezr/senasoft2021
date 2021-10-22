@@ -43,7 +43,7 @@ if ($usuario===$usu && $pass===$pass1 && $rol==="2")
 
     echo "<script type='text/javascript'>
         alert('Bienvenido al Sistema de Gestión de Servicios..  Ingresaste con ROL ADMINISTRATIVO');
-        window.location='../princ_admin.php';
+        window.location='../inicio_Admin.php';
         </script>";
     
 }elseif($usuario===$usu1 && $pass===$pass2 && $rol1==="3")
@@ -53,7 +53,7 @@ if ($usuario===$usu && $pass===$pass1 && $rol==="2")
 
     echo "<script type='text/javascript'>
         alert('Bienvenido al Sistema de Gestión de Servicios..  Ingresaste con ROL PROFESIONAL');
-        window.location='../consulta.php';
+        window.location='../welcomepro.php';
         </script>";
 }
 else{   

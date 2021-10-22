@@ -1,5 +1,14 @@
 <?php
+session_start();
+if (!isset($_SESSION['login']))
+{
+    echo "<script type='text/javascript'>
+        alert('Usuario no haz Iniciado Sesión, por favor Logueate!!!!');
+        window.location='index.php';
+        </script>";
+}
 require("class/class.php");
+$usuario=$_SESSION['login']; 
 ini_set( 'display_errors','Off' );
 ini_set( 'error_reporting', E_ALL );
 define( 'WP_DEBUG', false );
@@ -66,6 +75,7 @@ if (isset($_POST['vali_in']))
             <button class="row casilla"><a href="crea_cita.php" style="text-decoration:none">Crear Citas</a></button>
             <button class="row casilla"><a href="update_usu_pas.php" style="text-decoration:none">Actualizar Paciente</a></button>
             <button class="row casilla"><a href="update_usu_pro.php" style="text-decoration:none">Actualizar Profesional</a></button>
+            <button class="row casilla"><a href="logout.php">Cerrar Sesión</a></a></button>
         </center>
 
     </nav>

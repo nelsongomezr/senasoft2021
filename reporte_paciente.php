@@ -61,9 +61,7 @@ $usuario=$_SESSION['login'];
                             $tra2=new Ips();
                             $tra3=$tra2->reporte_paciente($usuario);
                             $id_medico=$tra3[0]['Medico_idMedico'];
-                            $tra4=new Ips();
-                            $tra5=$tra4->medico($id_medico);
-                            $medico=$tra5[0]['Nombre'];
+                            
                             
                         for($i=0; $i<sizeof($tra3); $i++){
                             ?>
@@ -92,9 +90,8 @@ $usuario=$_SESSION['login'];
                             <td><?php echo $tra3[$i]['Observaciones'];?></td>
                             </tr>
                             <tr>
-                            <td></td>
-                            <td></td>
-                            
+                            <td colspan="2"></td>
+                                     
                             <?php
                             }   
                         
