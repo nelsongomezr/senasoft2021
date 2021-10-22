@@ -37,8 +37,6 @@ $estado=$tra1[0]['Estado_Civil'];
 </head>
 
 <body>
-
-
     <div class=titulo>
     <h1>MODULO PACIENTE</h1>
     </div>
