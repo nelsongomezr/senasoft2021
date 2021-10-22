@@ -1,5 +1,13 @@
 <?php
-    $id=1024550858;
+    session_start();
+    if (!isset($_SESSION['login']))
+    {
+        echo "<script type='text/javascript'>
+            alert('Usuario no haz Iniciado Sesión, por favor Logueate!!!!');
+            window.location='index.php';
+            </script>";
+    }
+    $id=$_SESSION['login'];
 
     require("class/class.php");
     $serv=new Profesional;

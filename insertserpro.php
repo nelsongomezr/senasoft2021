@@ -1,10 +1,18 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['login']))
+    {
+        echo "<script type='text/javascript'>
+            alert('Usuario no haz Iniciado Sesión, por favor Logueate!!!!');
+            window.location='index.php';
+            </script>";
+    }
     $ids=$_GET['id'];
     require("class/class.php");
     $info= new Profesional;
     $inf=$info->queryidserv($ids);
-    $hme=$info->Queryhis($ids);
-    print_r($hme);
+    $a=$ids;
+    //print_r($hme);
     /*ini_set( 'display_errors','Off' );
     ini_set( 'error_reporting', E_ALL );
     define( 'WP_DEBUG', false );
@@ -93,7 +101,7 @@
     <!--Formilario historia medica-->
         <center>
         <table>
-            <form method="POST" action="inshhiscli.php" >
+            <form method="POST">
                 <tr class="color">
                     <th>Conciencia:</th>
                     <td>
@@ -219,10 +227,12 @@
                     <td><textarea name="obser" rows="8" cols="23" placeholder="Digite su observacion aqui"></textarea></td>
                 </tr>
             <input type="hidden" name="date" value="<?php echo $inf[0]['Fecha_Serv'];?>"><br><!--fecha--> 
+            <input type="button">
             <input type="hidden" name="servicio" value="<?php echo $ids;?>"><!--id de servicio-->
             <input type="hidden" name="hmedica" value="<?php $hme[0]['Id_Hclinica'];?>"><!--id historia medica-->
             <tr>
-                <td colspan="2" align="center"><input type="submit" name="siguiente" class="btn btn-dark" value="Siguiente"></td>
+                <td  align="center"><input type="submit" name="siguiente" class="btn btn-dark" value="Guardar"></td>
+                <?php echo'<td><button class= btn btn-dark><a href=inshhiscli.php?id='.$a.'>Siguiente</a></td>'?>
             </tr>
         </form>
         </table>

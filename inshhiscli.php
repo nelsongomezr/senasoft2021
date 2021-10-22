@@ -1,16 +1,29 @@
 <?php
-    $ids=$_POST['servicio'];
+    session_start();
+    if (!isset($_SESSION['login']))
+    {
+        echo "<script type='text/javascript'>
+            alert('Usuario no haz Iniciado Sesión, por favor Logueate!!!!');
+            window.location='index.php';
+            </script>";
+    }
+    $id=$_SESSION['login'];    
     require("class/class.php");
+    if(isset($_GET))
+    {
+        $ids=$_GET['id'];
+    }
+    
     $info= new Profesional;
     $inf=$info->queryidserv($ids);
-    print_r($_POST);
+    $hme=$info->Queryhis($ids);
+
 
    /* ini_set( 'display_errors','Off' );
     ini_set( 'error_reporting', E_ALL );
     define( 'WP_DEBUG', false );
     define( 'WP_DEBUG_DISPLAY', false );*/
 ?>
-<?php $inf[0]['idServicios']?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,7 +134,7 @@
                     <!--fecha historia-->
                     <td><input type="hidden" name="fecha" value="<?php echo $inf[0]['Fecha_Serv'];?>"></td>
                     <!--id historia medica-->
-                    <td><input type="hidden" name="idhis" value=""></td>
+                    <td><input type="hidden" name="idhis" value="<?php echo $hme[0]['Id_Hclinica'];?>"></td>
                 <tr>
                     <td><input type="submit"  name="enviar" class="btn btn-dark" value="Servicio Atendido"></td>
                 </tr>
@@ -136,5 +149,6 @@
     {
         $med[]=$_POST;
         $infor1=$info->Insertmed($med);
+        $infoe=$info->Camest($ids);
     }
 ?>

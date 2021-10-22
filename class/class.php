@@ -326,7 +326,7 @@ class Profesional extends conexion
         $dilucion=$infor[0]['di'];
         $viaadmom=$infor[0]['via'];
         $fecha=$infor[0]['fecha'];
-        $idhis=$infor[0]['hmedica'];
+        $idhis=$infor[0]['idhis'];
 
         if($nombre=="" or($presenta=="") or($Concentracion=="") or($posologia=="") or($dilucion=="") or($viaadmom=="") or($fecha=="") or($idhis==""))
         {
@@ -338,10 +338,16 @@ class Profesional extends conexion
         {
             $sql="INSERT INTO medicamento VALUES(null,:nombre,:presenta,:Concentracion,:posologia,:dilucion,:viaadmom,:fecha,:idhis)";
             $res=$this->conex->prepare($sql);
-            $res->execute(array('nombre'=>$nombre,'presenta'=>$presenta,'Concentracion'=>$presenta,'posologia'=>$posologia,'dilucion'=>$dilucion,'viaadmom'=>$viaadmom,'fecha'=>$fecha,'idhis'=>$idhis));
+            $res->execute(array('nombre'=>$nombre,'presenta'=>$presenta,'Concentracion'=>$Concentracion,'posologia'=>$posologia,'dilucion'=>$dilucion,'viaadmom'=>$viaadmom,'fecha'=>$fecha,'idhis'=>$idhis));
+            
         }
         
     }
+    public function Camest($ids)
+    {
+        $sql="UPDATE servicios SET servicios.Estado=2 WHERE servicios.idServicios=:ids";
+        $res=$this->conex->prepare($sql);
+        $res->execute(array('ids'=>$ids));
+    }
 }
-
 ?>
