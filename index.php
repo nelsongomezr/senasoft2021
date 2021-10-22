@@ -22,7 +22,7 @@ define( 'WP_DEBUG_DISPLAY', false );
 <center>
     <br>
     <img src="imagenes/imagen_clinica.jpg" width="500px" heigth="400px">   
-</center>
+</center><br>
     <div class="titulo">
         <h1>BIENVENIDO(A) AL SISTEMA DE GESTION DE SERVICIOS</h1>
     </div>
