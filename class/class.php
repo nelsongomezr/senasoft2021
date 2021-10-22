@@ -1,5 +1,229 @@
 <?php
 require("conexion.php");
+Class Ips extends Conexion
+{
+    
+    private $variable=array();
+    private $vector=array();
+    private $validacion=array();
+    private $validacion1=array();
+
+    public function consul_admi($codig)
+    {
+        $sql="SELECT * FROM `servicios` INNER JOIN usuario ON servicios.Usuario_idUsuario=usuario.idUsuario INNER JOIN profesional ON servicios.Medico_idMedico=profesional.idMedico WHERE servicios.Usuario_idUsuario=:num";
+        $res=$this->conex->prepare($sql);
+	    $res->execute(array(':num'=>$codig));
+        
+ 
+		while ($reg=$res->fetch(PDO::FETCH_ASSOC)) 
+		{
+		
+			$this->vector[]=$reg;
+			
+		
+		}
+		return $this->vector;
+    }
+    
+    public function insert_pro($num,$nom,$dir,$email,$tel,$passw,$rol,$act)
+    {
+        
+        $sql="INSERT INTO profesional VALUES (:num,:nom,:dir,:email,:telf,:pass,:estad,:rol)";
+		$res=$this->conex->prepare($sql);
+		$res->execute(array(":num"=>$num, ":nom"=>$nom, ":dir"=>$dir,"email"=>$email, ":telf"=>$tel, ":pass"=>$passw,":estad"=>$act, ":rol"=>$rol));
+		
+
+		echo "<script type='text/javascript'>
+					alert('proceso realizado de manera satisfactoria');
+					window.location='../senasoft2021/crea_usu.php';
+			</script>";
+        
+    }
+
+    public function insert_usu_cit($num,$nom,$fnaci,$eps,$fafi,$dir,$email,$tel,$nacu,$telacu,$passw,$bsex,$cresi,$ecivi,$rol)
+    {
+        
+        $sql="INSERT INTO usuario VALUES (:num,:nom,:fnaci,:eps,:fafi,:dir,:email,:tel,:nacu,:telacu,:passw,:bsex,:cresi,:ecivi,:rol)";
+		$res=$this->conex->prepare($sql);
+		$res->execute(array(":num"=>$num,":nom"=>$nom,":fnaci"=>$fnaci,":eps"=>$eps,":fafi"=>$fafi,":dir"=>$dir,":email"=>$email,":tel"=>$tel,":nacu"=>$nacu,":telacu"=>$telacu,":passw"=>$passw,":bsex"=>$bsex,":cresi"=>$cresi,":ecivi"=>$ecivi,":rol"=>$rol));
+		
+		echo "<script type='text/javascript'>
+					alert('proceso realizado de manera satisfactoria');
+					window.location='../senasoft2021/crea_usu_pas.php';
+			</script>";
+        
+    }
+
+    public function consul_usu($codi)
+    {
+        $sql="SELECT * FROM `usuario` WHERE idUsuario=:num";
+        $res=$this->conex->prepare($sql);
+	    $res->execute(array(':num'=>$codi));
+        
+ 
+		while ($reg=$res->fetch(PDO::FETCH_ASSOC)) 
+		{
+		
+			$this->vector[]=$reg;
+			
+		
+		}
+		return $this->vector;
+    }
+
+    public function update_usu_cit($num,$nom,$fnaci,$eps,$fafi,$dir,$email,$tel,$nacu,$telacu,$passw,$bsex,$cresi,$ecivi,$rol)
+    {
+        
+        $sql="UPDATE `usuario` SET `idUsuario`=:num,`Nombre`=:nom,`Fecha_nac`=:fnaci,`Eps`=:eps,`Fecha_Afili`=:fafi,`Direccion`=:dir,`Email`=:email,`Telefono`=:tel,`Responsable`=:nacu,`Tel_Respon`=:telacu,`Password`=:passw,`Sexo`=:bsex,`Ciudad`=:cresi,`Estado_Civil`=:ecivi,`Rol_idRol`=:rol WHERE idUsuario=:num";
+       
+        
+		$res=$this->conex->prepare($sql);
+		$res->execute(array(":num"=>$num,":nom"=>$nom,":fnaci"=>$fnaci,":eps"=>$eps,":fafi"=>$fafi,":dir"=>$dir,":email"=>$email,":tel"=>$tel,":nacu"=>$nacu,":telacu"=>$telacu,":passw"=>$passw,":bsex"=>$bsex,":cresi"=>$cresi,":ecivi"=>$ecivi,":rol"=>$rol));
+		
+		echo "<script type='text/javascript'>
+					alert('proceso realizado de manera satisfactoria');
+					window.location='../update_usu_pas.php';
+			</script>";
+        
+    }
+
+    public function consul_usu_pro($codi)
+    {
+        $sql="SELECT * FROM `profesional` WHERE idMedico=:num";
+        $res=$this->conex->prepare($sql);
+	    $res->execute(array(':num'=>$codi));
+        
+ 
+		while ($reg=$res->fetch(PDO::FETCH_ASSOC)) 
+		{
+		
+			$this->vector[]=$reg;
+			
+		
+		}
+		return $this->vector;
+    }
+
+    public function update_usu_pro($num,$nom,$dir,$email,$tel,$passw,$act,$rol,$espe)
+    {
+        
+        $sql="UPDATE `profesional` SET `idMedico`=:num,`Nombre`=:nom,`Direccion`=:dir,`Email`=:email,`Telefono`=:tel,`Password`=:passw,`Estado`=:estad,`Rol_idRol`=:rol WHERE idMedico=:num";
+        
+		$res=$this->conex->prepare($sql);
+		$res->execute(array(":num"=>$num,":nom"=>$nom,":dir"=>$dir,":email"=>$email,":tel"=>$tel,":passw"=>$passw,":estad"=>$act,":rol"=>$rol));
+		
+		$sql1="INSERT INTO `especialidad_has_medico` VALUES (:especi,:num)";
+        $res1=$this->conex->prepare($sql1);
+        $res1->execute(array(":especi"=>$espe,":num"=>$num));
+        
+        echo "<script type='text/javascript'>
+					alert('proceso realizado de manera satisfactoria');
+					window.location='../update_usu_pro.php';
+			</script>";        
+    }
+
+    public function consulta_cita()
+    {
+        $sql="SELECT * FROM `usuario`";
+        $res=$this->conex->prepare($sql);
+	    $res->execute(array());
+        
+ 
+		while ($reg=$res->fetch(PDO::FETCH_ASSOC)) 
+		{
+		
+			$this->vector[]=$reg;
+			
+		
+		}
+		return $this->vector;
+
+    }
+
+    public function consulta_cita1()
+    {
+        $sql="SELECT * FROM `profesional`";
+        $res=$this->conex->prepare($sql);
+	    $res->execute(array());
+        
+ 
+		while ($reg=$res->fetch(PDO::FETCH_ASSOC)) 
+		{
+		
+			$this->variable[]=$reg;
+			
+		
+		}
+		return $this->variable;
+    }
+
+    public function crea_cita($fech_serv,$Hini,$Hfin,$Dir_ser,$Est,$usuar,$medi,$ciud)
+    {
+        $sql="INSERT INTO `servicios`(`Fecha_Serv`, `Hora_Ini`, `Hora_Fin`, `Dir_Servc`, `Estado`, `Usuario_idUsuario`, `Medico_idMedico`, `Ciudad`) VALUES (:fech_serv,:Hini,:Hfin,:Dir_ser,:Est,:usuar,:medi,:ciud)";
+        
+        $res=$this->conex->prepare($sql);
+        $res->execute(array(":fech_serv"=>$fech_serv,":Hini"=>$Hini,":Hfin"=>$Hfin,":Dir_ser"=>$Dir_ser,":Est"=>$Est,":usuar"=>$usuar,":medi"=>$medi,":ciud"=>$ciud));
+        
+        echo "<script type='text/javascript'>
+        alert('proceso realizado de manera satisfactoria');
+        window.location='../senasoft2021/crea_cita.php';
+        </script>";
+    
+    
+    }
+
+    public function valida_pass($usuario,$pass)
+    {
+            $sql="SELECT * FROM usuario WHERE idUsuario=:usu AND Contraseña=:pass";
+            $res=$this->conex->prepare($sql);
+            $res->execute(array(":usu"=>$usuario,":pass"=>$pass));
+            while($reg=$res->fetch(PDO::FETCH_ASSOC))
+            {
+                $this->validacion[]=$reg;
+            }
+            return $this->validacion;
+    }
+
+    public function valida_pass1($usuario,$pass)
+    {
+            $sql="SELECT * FROM profesional WHERE idMedico=:usu AND Contraseña=:pass";
+            $res=$this->conex->prepare($sql);
+            $res->execute(array(":usu"=>$usuario,":pass"=>$pass));
+            while($reg=$res->fetch(PDO::FETCH_ASSOC))
+            {
+                $this->validacion1[]=$reg;
+            }
+            return $this->validacion1;
+    }
+
+    Public function trae_datos($usuario)
+    {
+        
+            $sql="SELECT * FROM usuario WHERE idUsuario=:usu";
+            $res=$this->conex->prepare($sql);
+            $res->execute(array(":usu"=>$usuario,));
+            while($reg=$res->fetch(PDO::FETCH_ASSOC))
+            {
+                $this->paciente[]=$reg;
+            }
+            return $this->paciente;
+    }
+    Public function reporte_paciente($usuario)
+    {
+        
+            $sql="SELECT * FROM servicios WHERE Usuario_idUsuario=:usu";
+            $res=$this->conex->prepare($sql);
+            $res->execute(array(":usu"=>$usuario,));
+            while($reg=$res->fetch(PDO::FETCH_ASSOC))
+            {
+                $this->paciente[]=$reg;
+            }
+            return $this->paciente;
+    }
+
+    
+
+}
 class Profesional extends conexion
 {
     Private $query=array();
@@ -122,4 +346,5 @@ class Profesional extends conexion
         
     }
 }
+
 ?>
