@@ -21,7 +21,7 @@ define( 'WP_DEBUG_DISPLAY', false );
 <body>
 <center>
     <br>
-    <img src="imag/logo.jpeg" width="500px" heigth="400px">   
+    <img src="imagenes/imagen_clinica.jpg" width="500px" heigth="400px">   
 </center>
     <div class="titulo">
         <h1>BIENVENIDO(A) AL SISTEMA DE GESTION DE SERVICIOS</h1>
