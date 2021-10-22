@@ -302,17 +302,15 @@ class Profesional extends conexion
         'orina'=>$orina,'oxi'=>$oxi,'Part'=>$Part,'fcar'=>$fcar,'fres'=>$fres,'temp'=>$temp,'gluco'=>$gluco,'oxi'=>$oxi,'cinicial'=>$cinicial,'cadmin'=>$cadmin,'via'=>$via,'tsol'=>$tsol,'Tadmin'=>$Tadmin));
         }
     }
-    public function Queryhis($idh)
+    public function Queryhis($id)
         {
-            print_r($idh);
-
             $sql="SELECT * FROM servicios
             INNER JOIN h_clinica
             ON servicios.idServicios=h_clinica.Servicios_idServicios
-            WHERE servicios.idServicios=:idh";
+            WHERE servicios.idServicios=:id";
 
             $res=$this->conex->prepare($sql);
-            $res->execute(array('idh'=>$idh));
+            $res->execute(array('id'=>$id));
             while($reg=$res->fetch(PDO::FETCH_ASSOC))
             {
                 $this->qu[]=$reg;
@@ -321,7 +319,6 @@ class Profesional extends conexion
         }
     public function Insertmed($infor)
     {
-        print_r($infor);
         $nombre=$infor[0]['nom'];
         $presenta=$infor[0]['pres'];
         $Concentracion=$infor[0]['con'];
