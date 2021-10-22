@@ -6,7 +6,7 @@
     $ser=$serv->queryserv($id);
 ?>
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +46,7 @@
                 <td><?php echo $ser[$i]['Usuario_idUsuario'];?></td>
                 <td><?php echo $ser[$i]['Nombre'];?></td>
                 <td><?php echo $ser[$i]['Ciudad'];?></td>
-                <td><a href="#">Gestionar</a></td>
+                <?php $a=$ser[$i]['idServicios'];echo'<td ><a href=insertserpro.php?id='.$a.'>Atender</a></td>'?>
             </tr>
             <?php
               }
