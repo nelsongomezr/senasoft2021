@@ -78,4 +78,16 @@ body
     background-size: cover;
     
 }
+.cerrar table{
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 7px 10px 37px #000;
+}
+
+a{
+    text-decoration: none;
+    text-align: center;
+}
 
