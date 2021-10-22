@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 require_once("class.php");
 
@@ -121,4 +120,3 @@ else{
         </script>";
     }
 ?>
->>>>>>> bc2348790fb3fb7b848b5c73d1fab824cc23cf4c
