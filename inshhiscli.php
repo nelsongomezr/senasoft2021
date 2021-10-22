@@ -3,6 +3,7 @@
     require("class/class.php");
     $info= new Profesional;
     $inf=$info->queryidserv($ids);
+    print_r($_POST);
 
    /* ini_set( 'display_errors','Off' );
     ini_set( 'error_reporting', E_ALL );
@@ -120,7 +121,7 @@
                     <!--fecha historia-->
                     <td><input type="hidden" name="fecha" value="<?php echo $inf[0]['Fecha_Serv'];?>"></td>
                     <!--id historia medica-->
-                    <td><input type="hidden" name="idhis"></td>
+                    <td><input type="hidden" name="idhis" value=""></td>
                 <tr>
                     <td><input type="submit"  name="enviar" class="btn btn-dark" value="Servicio Atendido"></td>
                 </tr>
@@ -134,7 +135,6 @@
     if(isset($_POST['enviar']))
     {
         $med[]=$_POST;
-        print_r($med);
-        //$infor1=$info->Insertmed($med);
+        $infor1=$info->Insertmed($med);
     }
 ?>
