@@ -10,6 +10,7 @@ class Conexion
 		try
 		{
 			$this->conex= new PDO("mysql:host=".serv.";dbname=".base.";charset=".charset.";port=".port,usua,pass);
+		
 		}
 		catch(exception $e)
 		{
@@ -17,5 +18,8 @@ class Conexion
 		}
 
 	}
+
 }
+
+
 ?>
