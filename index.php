@@ -16,10 +16,14 @@ define( 'WP_DEBUG_DISPLAY', false );
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&#129658;Bienvenidos al gestor de atención de servicios médicos &#128138;</title>
-    <link rel="stylesheet" href="css/estilos2.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
+<center>
+    <br>
+    <img src="imag/logo.jpeg" width="500px" heigth="400px">   
+</center>
     <div class="titulo">
         <h1>BIENVENIDO(A) AL SISTEMA DE GESTION DE SERVICIOS</h1>
     </div>
