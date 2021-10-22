@@ -18,7 +18,6 @@ define( 'WP_DEBUG_DISPLAY', false );
     <title>&#129658;Bienvenidos al gestor de atención de servicios médicos &#128138;</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
-
 <body>
 <center>
     <br>
