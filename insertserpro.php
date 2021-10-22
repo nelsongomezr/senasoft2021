@@ -3,6 +3,8 @@
     require("class/class.php");
     $info= new Profesional;
     $inf=$info->queryidserv($ids);
+    $hme=$info->Queryhis($ids);
+    $idh=$hme[0]['Id_Hclinica'];
     /*ini_set( 'display_errors','Off' );
     ini_set( 'error_reporting', E_ALL );
     define( 'WP_DEBUG', false );
@@ -218,6 +220,7 @@
                 </tr>
             <input type="hidden" name="date" value="<?php echo $inf[0]['Fecha_Serv'];?>"><br><!--fecha--> 
             <input type="hidden" name="servicio" value="<?php echo $ids;?>"><!--id de servicio-->
+            <input type="hidden" name="hmedica" value="<?php echo $idh;?>"><!--id historia medica-->
             <tr>
                 <td colspan="2" align="center"><input type="submit" name="siguiente" class="btn btn-dark" value="Siguiente"></td>
             </tr>
