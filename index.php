@@ -27,7 +27,7 @@ define( 'WP_DEBUG_DISPLAY', false );
         <h1>BIENVENIDO(A) AL SISTEMA DE GESTION DE SERVICIOS</h1>
     </div>
     <form class="form-login" method="post" name="login" action="class/valida_usuario.php">
-        <center><img src="imag/login.png" width="70px" heigth="70px"></center><br>
+        <center><img src="imagenes/login.png" width="70px" heigth="70px"></center><br>
         <h4>Ingresa tus Credenciales</h4>
         
         <input class="controls" type="text" name="usuario" value="" placeholder="&#128273;Usuario" required>
